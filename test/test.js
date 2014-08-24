@@ -157,6 +157,16 @@ describe('classList(el)', function () {
       classList(svg).toggle('hidden');
       expect(svg.getAttribute('class')).toBe('foo bar hidden');
     });
+
+    it('should return `true` if the class is added', function(){
+      el.className = '';
+      expect(classList(el).toggle('foo')).toBe(true);
+    });
+
+    it('should return `false` if the class is remove', function(){
+      el.className = 'foo';
+      expect(classList(el).toggle('foo')).toBe(false);
+    });
   });
 
   describe('.toggle(string, force)', function(){
@@ -180,6 +190,11 @@ describe('classList(el)', function () {
         classList(svg).toggle('hidden', true);
         expect(svg.getAttribute('class')).toBe('foo bar hidden');
       });
+
+      it('should always return `true`', function(){
+        expect(classList(el).toggle('hidden', true)).toBe(true);
+        expect(classList(el).toggle('hidden', true)).toBe(true);
+      });
     });
 
     describe('when force is false', function(){
@@ -202,6 +217,12 @@ describe('classList(el)', function () {
         svg.setAttribute('class', 'foo bar');
         classList(svg).toggle('hidden', false);
         expect(svg.getAttribute('class')).toBe('foo bar');
+      });
+
+
+      it('should always return `false`', function(){
+        expect(classList(el).toggle('hidden', false)).toBe(false);
+        expect(classList(el).toggle('hidden', false)).toBe(false);
       });
     });
   });

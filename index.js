@@ -161,5 +161,5 @@ ClassList.prototype.toggle = function (token, force) {
     this[method](token);
   }
 
-  return !hasToken;
+  return (typeof force == 'boolean' ? force : !hasToken);
 };
