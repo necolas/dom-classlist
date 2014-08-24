@@ -1,6 +1,6 @@
 {
   "name": "dom-classlist",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Cross-browser element (including SVG) class list manipulation",
   "files": [
     "index.js"
